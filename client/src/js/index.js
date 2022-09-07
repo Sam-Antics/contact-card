@@ -4,7 +4,7 @@ import "./submit";
 
 // import CSS
 import "../css/index.css";
-import { Tooltip, Toast, Popoever } from "bootstrap";
+import { Tooltip, Toast, Popover } from "bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Logo from '../images/logo.png';
