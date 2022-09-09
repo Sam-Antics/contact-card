@@ -14,11 +14,11 @@ import Dog from '../images/dog.png';
 import Sam from '../images/sam-avatar.png';
 
 // import db
-import { initdb  } from "./database";
+import { initDb  } from "./database";
 
 
 window.addEventListener('load', function() {
-  initdb();
+  initDb();
   document.getElementById('logo').src = Sam;
   document.getElementById('bearThumbnail').src = Bear;
   document.getElementById('dogThumbnail').src = Dog;

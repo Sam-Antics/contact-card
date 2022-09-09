@@ -1,7 +1,7 @@
 import { openDB } from 'idb';
 import 'regenerator-runtime/runtime';
 
-export const initdb = async () => {
+export const initDb = async () => {
   // creating a new database named contact_db which will be using version 1 of the db
   openDB('contact_db', 1, {
     // add the database schema if it has not already been initialized
@@ -15,4 +15,18 @@ export const initdb = async () => {
       console.log('contacts store created');
     }
   })
+}
+
+export const getDb = async () => {
+  console.log('GET from the database');
+
+  // create a connection to the IndexedDB database and the version we want to use
+  const contactDb = await openDB('contact_db', 1);
+
+  // create a new transaction and specify the store and data privleges
+  const tx = contactDB.transaction('contacts', 'readonly');
+
+  // open up the desired object store
+  const store = tx.objectStore('contacts');
+
 }
