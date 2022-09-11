@@ -78,3 +78,23 @@ export const deleteDb = async (id) => {
   console.log('result.value', result);
   return result?.value;
 };
+
+export const editDb = async (id, name, email, phone, profile) => {
+  console.log('EDIT card on the database');
+
+  // create connection
+  const contactDb = await openDB('contact_db', 1);
+
+  // create new transaction
+  const tx = contactDb.transaction('contacts', 'readwrite');
+
+  // open desired object store
+  const store = tx.objectStore('contacts');
+
+  // create a .put() method to update a particular object
+  const request = store.put({ id: id, name: name, email: email, phone: phone, profile: profile });
+
+  // get confirmation of the request
+  const result = await request;
+  console.log('🚀 - data saved to the database', result);
+};
